@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingredient_list: MyString
+  measurements: MyString
+  instructions: MyString
+  cooking_time: MyString
+  image: MyString
+  serving_size: MyString
+  calories: MyString
+  gluten_free: MyString
+  title: MyString
+  contributor: MyString
+
+two:
+  ingredient_list: MyString
+  measurements: MyString
+  instructions: MyString
+  cooking_time: MyString
+  image: MyString
+  serving_size: MyString
+  calories: MyString
+  gluten_free: MyString
+  title: MyString
+  contributor: MyString

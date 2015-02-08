@@ -1,0 +1,7 @@
+<h1>Employees</h1>
+<% @employees.each do |employee| %>
+  <h2><%= employee.first_name + " " + employee.last_name %></h2>
+  <h2><%= "#{ employee.first_name } #{ employee.last_name }" %></h2>
+  <h3><%= employee.title %></h3>
+  <hr>
+<% end %>
