@@ -1,0 +1,15 @@
+<h1>Add Employee</h1>
+
+<%= form_tag '/submit_employee' do %>
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %>
+
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+
+  <%= submit_tag "Add Employee" %>
+
+<% end %>
