@@ -1,3 +1,5 @@
 <h1><%= @recipe.title %></h1>
 <h2><%= @recipe.ingredient_list %></h2>
 <h2><%= @recipe.instructions %></h2>
+<a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
+<a href="/recipes/<%= @recipe.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>

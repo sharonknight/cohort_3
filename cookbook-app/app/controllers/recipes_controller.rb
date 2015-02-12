@@ -18,4 +18,15 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
   end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    @recipe.update({:title => params[:title], :ingredient_list => params[:ingredient_list], :instructions => params[:instructions]})
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+  end
 end
