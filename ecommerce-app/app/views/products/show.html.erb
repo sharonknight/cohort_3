@@ -1,0 +1,21 @@
+<h1><%= @product.title %></h1>
+<img src="<%= @product.image %>" width="300">
+<h2><%= number_to_currency(@product.price) %></h2>
+
+<h3><%= @product.sale_message %></h3>
+
+<table>
+  <tr>
+    <td>Subtotal:</td>
+    <td><%= number_to_currency(@product.price) %></td>
+  </tr>
+  <tr>
+    <td>Tax:</td>
+    <td><%= number_to_currency(@product.tax) %></td>
+  </tr>
+  <tr>
+    <td>Total:</td>
+    <td><%= number_to_currency(@product.total) %></td>
+  </tr>
+</table>
+

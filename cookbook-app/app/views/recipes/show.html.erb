@@ -1,5 +1,16 @@
 <h1><%= @recipe.title %></h1>
-<h2><%= @recipe.ingredient_list %></h2>
-<h2><%= @recipe.instructions %></h2>
+<h5>Added on <%= @recipe.friendly_created_at %></h5>
+<ul>
+<% @recipe.array_of_ingredients.each do |ingredient| %>
+  <li><%= ingredient %></li>
+<% end %>
+</ul>
+<ol>
+<% @recipe.array_of_instructions.each do |instruction| %>
+  <li><%= instruction %></li>
+<% end %>
+</ol>
+<img src="<%= @recipe.image %>" width="400">
+<br>
 <a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
 <a href="/recipes/<%= @recipe.id %>" data-method="delete" rel="nofollow" data-confirm="Are you sure?">Delete</a>

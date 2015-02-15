@@ -14,14 +14,14 @@
 ActiveRecord::Schema.define(version: 20150208171752) do
 
   create_table "products", force: :cascade do |t|
-    t.decimal  "price",       precision: 7, scale: 2
-    t.string   "title"
-    t.string   "image"
-    t.text     "description"
-    t.string   "category"
-    t.string   "brand"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.decimal  "price",                     precision: 7, scale: 2
+    t.string   "title",       limit: 255
+    t.string   "image",       limit: 255
+    t.text     "description", limit: 65535
+    t.string   "category",    limit: 255
+    t.string   "brand",       limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
 end
