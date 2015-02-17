@@ -15,7 +15,9 @@ class RecipesController < ApplicationController
 
   def create
     Recipe.create({:title => params[:title], :ingredient_list => params[:ingredient_list], :instructions => params[:instructions]})
-    # Recipe.create({:title => "Raw Eggs", :ingredient_list => "Chicken", :instructions => "Squeeze chicken"})
+    flash[:purple] = "Recipe added."
+    # flash == {:success => "Recipe added."}
+    redirect_to '/recipes'
   end
 
   def edit
@@ -26,6 +28,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
 
     @recipe.update({:title => params[:title], :ingredient_list => params[:ingredient_list], :instructions => params[:instructions]})
+    flash[:success] = "Recipe updated."
+    redirect_to '/recipes'
   end
 
   def destroy

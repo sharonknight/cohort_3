@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    #/products?category=toys
+    #/products?search=chair
 
     @products = Product.all
     if params[:filter] == "discount"
