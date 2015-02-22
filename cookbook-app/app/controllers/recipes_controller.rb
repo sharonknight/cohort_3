@@ -14,10 +14,10 @@ class RecipesController < ApplicationController
   end
 
   def create
-    Recipe.create({:title => params[:title], :ingredient_list => params[:ingredient_list], :instructions => params[:instructions]})
-    flash[:purple] = "Recipe added."
-    # flash == {:success => "Recipe added."}
-    redirect_to '/recipes'
+    recipe = Recipe.create({:title => params[:title], :ingredient_list => params[:ingredient_list], :instructions => params[:instructions], :user_id => current_user.id })
+    flash[:success] = "Recipe added."
+
+    redirect_to "/recipes/" + recipe.id.to_s
   end
 
   def edit
@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
 
     @recipe.update({:title => params[:title], :ingredient_list => params[:ingredient_list], :instructions => params[:instructions]})
     flash[:success] = "Recipe updated."
-    redirect_to '/recipes'
+    redirect_to "/recipes/#{@recipe.id}"
   end
 
   def destroy

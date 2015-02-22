@@ -1,4 +1,7 @@
 <h1>Here are all the recipes</h1>
+<% if current_user %>
+  <h2>Hi there, <%= current_user.email %>! We haven't seen you in a long time!</h2>
+<% end %>
 <div class="row">
   <% @recipes.each do |recipe| %>
     <div class="col-md-4 col-sm-6">

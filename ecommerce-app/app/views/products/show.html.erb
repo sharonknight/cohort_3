@@ -4,6 +4,16 @@
 
 <h3><%= @product.sale_message %></h3>
 
+<% if @product.vendor %>
+  <h4><%= @product.vendor.name %></h4>
+<% end %>
+
+<ul>
+<% @product.product_options.each do |product_option| %>
+  <li><%= product_option.name %></li>
+<% end %>
+</ul>
+
 <table>
   <tr>
     <td>Subtotal:</td>
@@ -18,4 +28,22 @@
     <td><%= number_to_currency(@product.total) %></td>
   </tr>
 </table>
+
+<%= form_tag "/orders" do %>
+  <%= label_tag :quantity %>
+  <%= text_field_tag :quantity %>
+
+  <%= hidden_field_tag :product_id, @product.id %>
+
+  <%= submit_tag "Buy Now!" %>
+<% end %>
+
+
+
+
+
+
+
+
+
 

@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
-
+  belongs_to :user
+  
   def array_of_ingredients
     return ingredient_list.split(",")
   end

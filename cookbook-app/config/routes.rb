@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  # get '/' => 'recipes#index'
+  devise_for :users
+  get '/' => 'recipes#index'
   get '/recipes' => 'recipes#index'
   post '/recipes' => 'recipes#create'
   get '/recipes/new' => 'recipes#new'
