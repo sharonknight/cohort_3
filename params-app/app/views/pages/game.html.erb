@@ -1,4 +1,10 @@
 <h1>Guess a number 1 through 100</h1>
 
-<h2>Your guess was <%= @users_guess %></h2>
-<h2><%= @message %></h2>
+
+<%= form_tag '/submit-guess' do %>
+  <%= label_tag :guess, "Guess a number:" %>
+  <%= text_field_tag :guess %>
+
+  <%= submit_tag "Guess!" %>
+
+<% end %>

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get '/user-message' => 'pages#get_params'
   get '/user-message2/:message' => 'pages#slug'
   get '/number-game' => 'pages#game'
+  post '/submit-guess' => 'pages#submit_guess'
+
+
   get '/number-game2/:guess' => 'pages#game2'
 
 end
