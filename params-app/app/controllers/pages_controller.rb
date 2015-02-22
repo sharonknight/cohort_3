@@ -21,7 +21,11 @@ class PagesController < ApplicationController
   end
 
   def submit_guess
-    winning_number = 26
+   
+      if cookies[:winning_number].nil?
+      cookies[:winning_number] = rand(1 .. 100)
+      end
+
     @users_guess = params[:guess].to_i
 
     if cookies[:number_of_guesses]
@@ -35,12 +39,14 @@ class PagesController < ApplicationController
 
     if @users_guess == 0
       @message = "Your input was invalid"
-    elsif @users_guess > winning_number
+    elsif @users_guess > cookies[:winning_number].to_i
       @message = "Guess lower"
-    elsif @users_guess < winning_number
+    elsif @users_guess < cookies[:winning_number].to_i
       @message = "Guess higher"
     else
-      @message = "You've won!"
+      @message = "You've won! Would you like to play again?"
+      cookies[:winning_number] = rand(1 .. 100)
+      cookies[:number_of_guesses] = 0
     end
 
     flash[:success] = "Your guess was #{@users_guess}"
@@ -49,19 +55,20 @@ class PagesController < ApplicationController
     redirect_to '/number-game'
   end
 
+
   def game2
     winning_number = 26
     @users_guess = params[:guess].to_i
 
     if @users_guess == 0
       @message = "Your input was invalid"
-    elsif @users_guess > winning_number
+    elsif @users_guess > cookies[:winning_number].to_i
       @message = "Guess lower"
-    elsif @users_guess < winning_number
+    elsif @users_guess < cookies[:winning_number].to_i
       @message = "Guess higher"
     else
       @message = "You've won!"
     end
-
   end
-end
+  end
+
